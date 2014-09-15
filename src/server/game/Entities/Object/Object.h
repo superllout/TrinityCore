@@ -442,6 +442,7 @@ struct MovementInfo
     uint32 fallTime;
 
         // jumping
+		float j_zspeed, j_sinAngle, j_cosAngle, j_xyspeed;		
     struct JumpInfo
     {
         void Reset()

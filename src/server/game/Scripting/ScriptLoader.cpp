@@ -17,6 +17,7 @@
 
 #include "ScriptLoader.h"
 #include "World.h"
+#include "AnticheatMgr.h"
 
 //examples
 void AddSC_example_creature();
@@ -45,6 +46,7 @@ void AddSC_holiday_spell_scripts();
 void AddSC_SmartScripts();
 
 //Commands
+void AddSC_anticheat_commandscript();
 void AddSC_account_commandscript();
 void AddSC_achievement_commandscript();
 void AddSC_ahbot_commandscript();
@@ -704,6 +706,7 @@ void AddScripts()
     AddSpellScripts();
     AddSC_SmartScripts();
     AddCommandScripts();
+    sAnticheatMgr->StartScripts();
 #ifdef SCRIPTS
     AddWorldScripts();
     AddEasternKingdomsScripts();
@@ -748,6 +751,7 @@ void AddSpellScripts()
 
 void AddCommandScripts()
 {
+    AddSC_anticheat_commandscript();
     AddSC_account_commandscript();
     AddSC_achievement_commandscript();
     AddSC_ahbot_commandscript();
@@ -1434,13 +1438,28 @@ void AddBattlegroundScripts()
 
 #ifdef SCRIPTS
 /* This is where custom scripts' loading functions should be declared. */
-
+void AddSC_npc_mmr_reset();
+void AddSC_npc_shop();
+void AddSC_Duel_Reset();
+void AddSC_channel_factions();
+void AddSC_npc_hunterpetvendor();
+void AddSC_Mod_Multikill();
+void AddSC_npc_arena_setup();
+void AddSC_top5_killers();
 #endif
 
 void AddCustomScripts()
 {
 #ifdef SCRIPTS
     /* This is where custom scripts should be added. */
-
+    AddSC_npc_mmr_reset();
+    AddSC_npc_shop();  
+    AddSC_Duel_Reset();
+    AddSC_channel_factions();
+    AddSC_npc_hunterpetvendor();
+    AddSC_Mod_Multikill();
+    AddSC_npc_arena_setup();
+    AddSC_top5_killers();
 #endif
 }
+
